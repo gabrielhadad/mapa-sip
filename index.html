@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mapa do SIP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <span class="eyebrow">GUIA INTERATIVO</span>
+      <h1>Mapa do SIP</h1>
+      <p>Processos — consulta rápida das principais telas e ações.</p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-title">Processos</div>
+      <nav id="menu"></nav>
+    </aside>
+
+    <section class="content">
+      <div class="content-head">
+        <div>
+          <span class="breadcrumb">Processos</span>
+          <h2 id="screenTitle"></h2>
+          <p id="screenDescription"></p>
+        </div>
+        <div class="counter"><span id="currentIndex">1</span>/<span id="totalItems">1</span></div>
+      </div>
+
+      <div class="viewer">
+        <button class="arrow left" id="prevBtn" aria-label="Anterior">‹</button>
+        <div class="slide" id="slide">
+          <div class="image-wrap">
+            <img id="screenImage" alt="">
+          </div>
+          <div class="info-panel">
+            <span class="tag" id="infoTag"></span>
+            <h3 id="infoTitle"></h3>
+            <p id="infoText"></p>
+            <div id="actionList" class="action-list"></div>
+          </div>
+        </div>
+        <button class="arrow right" id="nextBtn" aria-label="Próximo">›</button>
+      </div>
+
+      <div class="dots" id="dots"></div>
+      <p class="hint">Use as setas ou deslize para o lado para navegar pelas ações.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
