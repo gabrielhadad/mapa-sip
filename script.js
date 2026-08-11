@@ -1,577 +1,1676 @@
 const DATA = {
-  "Painel de atividades": [
-    {
-      image: "assets/painel-atividades.png",
-      tag: "Visão geral",
-      title: "Painel de atividades",
-      text: "Reúne agenda, prazos e tarefas em uma única tela.",
-      hotspots: [
+    "Painel de atividades": [
         {
-          x: 0.8,
-          y: 5.1,
-          w: 6.6,
-          h: 4.3,
-          label: "Dia",
-          title: "Agenda do dia",
-          text: "Exibe os compromissos do dia selecionado."
+            image: "assets/painel-atividades.png",
+
+            tag: "Visão geral",
+
+            title: "Painel de atividades",
+
+            text: "Reúne agenda, prazos e tarefas em uma única tela.",
+
+            hotspots: [
+                {
+                    x: 2.2,
+                    y: 6.5,
+                    w: 6.2,
+                    h: 4.5,
+
+                    label: "Dia",
+
+                    title: "Agenda do dia",
+
+                    text: "Exibe os compromissos do dia selecionado."
+                },
+
+                {
+                    x: 9.3,
+                    y: 6.5,
+                    w: 7.2,
+                    h: 4.5,
+
+                    label: "Semana",
+
+                    title: "Agenda da semana",
+
+                    text: "Exibe os compromissos da semana selecionada."
+                },
+
+                {
+                    x: 17.1,
+                    y: 6.5,
+                    w: 6.3,
+                    h: 4.5,
+
+                    label: "Mês",
+
+                    title: "Agenda do mês",
+
+                    text: "Exibe os compromissos do mês selecionado."
+                },
+
+                {
+                    x: 1.6,
+                    y: 36.0,
+                    w: 16.5,
+                    h: 11.0,
+
+                    label: "Usuários",
+
+                    title: "Agenda por usuário",
+
+                    text: "Exibe os colaboradores do setor. Ao selecionar outro usuário, a agenda dele também passa a ser exibida."
+                }
+            ],
+
+            actions: [
+                [
+                    "Agenda/Calendário",
+                    "Consulta compromissos por dia, semana ou mês."
+                ],
+
+                [
+                    "Prazos",
+                    "Exibe prazos vinculados aos processos."
+                ],
+
+                [
+                    "Tarefas",
+                    "Exibe tarefas e demandas vinculadas ao usuário."
+                ],
+
+                [
+                    "Setores e usuários",
+                    "Permite selecionar quais usuários terão suas agendas exibidas."
+                ]
+            ]
         },
+
         {
-          x: 7.5,
-          y: 5.1,
-          w: 6.8,
-          h: 4.3,
-          label: "Semana",
-          title: "Agenda da semana",
-          text: "Exibe os compromissos da semana selecionada."
+            image: "assets/painel-prazos-menu.png",
+
+            tag: "Prazos",
+
+            title: "Ações do prazo",
+
+            text: "Clique com o botão direito sobre um prazo para acessar as ações disponíveis.",
+
+            hotspots: [],
+
+            actions: [
+                [
+                    "Altera processo",
+                    "Abre o processo relacionado para alteração."
+                ],
+
+                [
+                    "Copia nº do processo",
+                    "Copia o número do processo."
+                ],
+
+                [
+                    "Repassa",
+                    "Permite repassar o prazo."
+                ],
+
+                [
+                    "Conclui",
+                    "Marca o prazo como concluído."
+                ],
+
+                [
+                    "Atualiza informações",
+                    "Atualiza os dados da tela."
+                ]
+            ]
         },
+
         {
-          x: 14.5,
-          y: 5.1,
-          w: 6.7,
-          h: 4.3,
-          label: "Mês",
-          title: "Agenda do mês",
-          text: "Exibe os compromissos do mês selecionado."
-        },
-        {
-          x: 0.9,
-          y: 35.1,
-          w: 15.0,
-          h: 10.8,
-          label: "Usuários",
-          title: "Agenda por usuário",
-          text: "Mostra os colaboradores do setor. Marque outro usuário para visualizar também a agenda dele."
+            image: "assets/painel-tarefas-menu.png",
+
+            tag: "Tarefas",
+
+            title: "Ações da tarefa",
+
+            text: "Clique com o botão direito sobre uma tarefa para acessar suas ações.",
+
+            hotspots: [],
+
+            actions: [
+                [
+                    "Inclui tarefa",
+                    "Abre o cadastro de uma nova tarefa."
+                ],
+
+                [
+                    "Altera processo",
+                    "Abre o processo relacionado."
+                ],
+
+                [
+                    "Conclui/Encerra",
+                    "Finaliza a tarefa."
+                ],
+
+                [
+                    "Histórico",
+                    "Exibe o histórico da tarefa."
+                ],
+
+                [
+                    "Copia dados",
+                    "Copia os dados da tarefa selecionada."
+                ],
+
+                [
+                    "Atualiza informações",
+                    "Atualiza os dados exibidos."
+                ]
+            ]
         }
-      ],
-      actions: [
-        ["Agenda/Calendário", "Consulta compromissos por dia, semana ou mês."],
-        ["Prazos", "Exibe prazos vinculados aos processos."],
-        ["Tarefas", "Exibe tarefas e demandas vinculadas ao usuário."],
-        ["Setores e usuários", "Define de quem as informações serão exibidas."]
-      ]
-    },
-    {
-      image: "assets/painel-prazos-menu.png",
-      tag: "Prazos",
-      title: "Ações do prazo",
-      text: "Clique com o botão direito sobre um prazo para acessar as ações rápidas.",
-      actions: [
-        ["Altera processo", "Abre o processo relacionado para alteração."],
-        ["Copia nº do processo", "Copia o número do processo."],
-        ["Repassa", "Permite repassar o prazo."],
-        ["Conclui", "Marca o prazo como concluído."],
-        ["Atualiza informações", "Atualiza os dados da tela (F5)."]
-      ]
-    },
-    {
-      image: "assets/painel-tarefas-menu.png",
-      tag: "Tarefas",
-      title: "Ações da tarefa",
-      text: "O menu de contexto concentra as principais ações sobre a tarefa.",
-      actions: [
-        ["Inclui tarefa", "Abre o cadastro de nova tarefa."],
-        ["Altera processo", "Abre o processo relacionado para alteração."],
-        ["Conclui/Encerra", "Finaliza a tarefa."],
-        ["Histórico", "Consulta o histórico da tarefa."],
-        ["Copia dados", "Copia os dados da tarefa selecionada."],
-        ["Atualiza informações", "Atualiza os dados da tela (F5)."]
-      ]
-    }
-  ],
+    ],
 
-  "Agenda do escritório": [
-    {
-      image: "assets/agenda-atividades.png",
-      tag: "Consulta",
-      title: "Agenda de atividades",
-      text: "Consulta atividades por período e filtros específicos.",
-      actions: [
-        ["Calendário", "Seleciona rapidamente o dia da consulta."],
-        ["Filtros", "Tipo, cidade, responsável, órgão, execução, cadastro e processo."],
-        ["Procura", "Executa a pesquisa conforme os critérios informados."],
-        ["Resultado", "Mostra atividades e detalhes do item selecionado."]
-      ]
-    }
-  ],
 
-  "Atendimento": [
-    {
-      image: "assets/atendimentos-pendentes.png",
-      tag: "Pendências",
-      title: "Atendimentos pendentes",
-      text: "Consulta atendimentos pendentes dentro do período informado.",
-      actions: [
-        ["Período", "Define a data inicial e final da pesquisa."],
-        ["Procura", "Busca os atendimentos."],
-        ["Atualiza", "Atualiza a listagem exibida."]
-      ]
-    }
-  ],
+    "Agenda do escritório": [
+        {
+            image: "assets/agenda-atividades.png",
 
-  "Clientes": [
-    {
-      image: "assets/clientes.png",
-      tag: "Pesquisa",
-      title: "Consulta de clientes",
-      text: "Localiza clientes por dados cadastrais e permite acessar informações relacionadas.",
-      hotspots: [
-        {
-          x: 40.5,
-          y: 90.3,
-          w: 7.1,
-          h: 5.0,
-          label: "Consulta",
-          title: "Consulta",
-          text: "Abre o cadastro somente para visualização."
-        },
-        {
-          x: 55.5,
-          y: 90.3,
-          w: 7.5,
-          h: 5.0,
-          label: "Processos",
-          title: "Processos",
-          text: "Abre os processos vinculados ao cliente selecionado."
-        },
-        {
-          x: 83.0,
-          y: 90.3,
-          w: 7.0,
-          h: 5.0,
-          label: "Tarefa",
-          title: "Tarefa",
-          text: "Acessa ou inclui tarefas relacionadas ao cliente."
+            tag: "Consulta",
+
+            title: "Agenda de atividades",
+
+            text: "Consulta atividades por período e critérios específicos.",
+
+            hotspots: [],
+
+            actions: [
+                [
+                    "Calendário",
+                    "Seleciona rapidamente o dia da consulta."
+                ],
+
+                [
+                    "Filtros",
+                    "Permitem refinar a pesquisa."
+                ],
+
+                [
+                    "Procura",
+                    "Executa a pesquisa conforme os critérios informados."
+                ],
+
+                [
+                    "Resultado",
+                    "Exibe as atividades encontradas."
+                ]
+            ]
         }
-      ],
-      actions: [
-        ["Procura", "Executa a pesquisa com os filtros informados."],
-        ["Consulta", "Abre o cadastro somente para visualização."],
-        ["Altera", "Abre o cadastro permitindo alterações."],
-        ["Processos", "Acessa os processos vinculados ao cliente."],
-        ["Tarefa", "Acessa ou inclui tarefas relacionadas."]
-      ]
-    },
+    ],
 
-    {
-      image: "assets/cadastro-cliente.png",
-      tag: "Cadastro",
-      title: "Dados do cliente",
-      text: "Tela com os dados cadastrais e acessos complementares do cliente.",
-      actions: [
-        ["Consulta", "Permite apenas visualizar as informações."],
-        ["Alterar", "Libera os campos permitidos para edição."],
-        ["Detalhes / Observações", "Acessos complementares do cadastro."],
-        ["Atend./Tarefas", "Acessa atendimentos e tarefas vinculados."],
-        ["Financeiro / Bancos", "Acessa informações financeiras quando disponíveis."]
-      ]
-    }
-  ],
 
-  "Consulta pendências": [
-    {
-      image: "assets/pendencias.png",
-      tag: "Pendências",
-      title: "Central de pendências",
-      text: "Reúne prazos, retornos, demandas internas, documentos e pastas pendentes.",
-      actions: [
-        ["Abas", "Separa os tipos de pendência."],
-        ["Altera", "Abre o item para alteração."],
-        ["Repassa", "Repassa a pendência."],
-        ["Conclui", "Finaliza a pendência."],
-        ["Processo", "Abre o processo relacionado."]
-      ]
-    }
-  ],
+    "Atendimento": [
+        {
+            image: "assets/atendimentos-pendentes.png",
 
-  "Processos": [
-    {
-      image: "assets/processo-detalhes.png",
-      tag: "Processo",
-      title: "Tela do processo",
-      text: "Concentra os dados do processo e suas áreas relacionadas.",
-      actions: [
-        ["Processo", "Dados principais, partes, responsáveis, ação, justiça e objetos."],
-        ["Atividades/Agenda", "Atividades relacionadas ao processo."],
-        ["Histórico/Andamento", "Histórico e movimentações."],
-        ["Prazos / Tarefas", "Itens vinculados ao processo."],
-        ["Documento / Recurso / Arquivo", "Áreas complementares do processo."],
-        ["Libera campos", "Quando permitido, libera campos para alteração."]
-      ]
-    }
-  ],
+            tag: "Pendências",
 
-  "Prazos": [
-    {
-      image: "assets/prazos.png",
-      tag: "Pesquisa",
-      title: "Consulta de prazos",
-      text: "Pesquisa e gerencia prazos utilizando filtros específicos.",
-      actions: [
-        ["Filtros", "Tipo, situação, responsável, processo, descrição, origem e datas."],
-        ["Procura", "Executa a pesquisa."],
-        ["Altera", "Abre o prazo selecionado para alteração."],
-        ["Conclui", "Conclui o prazo quando disponível."],
-        ["Processo", "Abre o processo relacionado."]
-      ]
-    }
-  ],
+            title: "Atendimentos pendentes",
 
-  "Tarefas": [
-    {
-      image: "assets/tarefas.png",
-      tag: "Pesquisa",
-      title: "Tarefas e demandas",
-      text: "Consulta retornos, demandas internas e solicitações de documentos.",
-      actions: [
-        ["Filtros", "Refina a pesquisa por tipo, categoria, responsável, processo e outros campos."],
-        ["Inclui", "Abre o cadastro de uma nova tarefa/retorno."],
-        ["Altera", "Abre o registro para edição."],
-        ["Encerra", "Finaliza o item selecionado."],
-        ["Abre", "Abre o item relacionado."]
-      ]
-    },
+            text: "Consulta atendimentos pendentes dentro do período informado.",
 
-    {
-      image: "assets/cadastro-retorno.png",
-      tag: "Cadastro",
-      title: "Cadastro de retorno/tarefa",
-      text: "Cadastro e edição de tarefas, retornos e demandas vinculadas ao processo.",
-      actions: [
-        ["Tipo / Classificação", "Define a natureza do registro."],
-        ["Nome / Título / Descrição", "Identifica a tarefa ou demanda."],
-        ["Responsável / Prazo", "Define quem executará e a data limite."],
-        ["Subtarefas", "Permite vincular itens menores à tarefa principal."],
-        ["Docs. / Checklist / Tag", "Complementam o registro."]
-      ]
-    }
-  ],
+            hotspots: [],
 
-  "Registros home office": [
-    {
-      image: "assets/home-office.png",
-      tag: "Consulta",
-      title: "Registro de atividades home office",
-      text: "Consulta registros de atividades por período, responsável e tipo.",
-      actions: [
-        ["Período", "Define a faixa de datas."],
-        ["Responsável", "Filtra por usuário."],
-        ["Tipo", "Filtra o tipo de atividade."],
-        ["Somente não concluídos", "Exibe apenas itens ainda pendentes."],
-        ["Procura", "Executa a pesquisa."]
-      ]
-    }
-  ]
+            actions: [
+                [
+                    "Período",
+                    "Define a data inicial e final."
+                ],
+
+                [
+                    "Procura",
+                    "Executa a pesquisa."
+                ],
+
+                [
+                    "Atualiza",
+                    "Atualiza a listagem."
+                ]
+            ]
+        }
+    ],
+
+
+    "Clientes": [
+        {
+            image: "assets/clientes.png",
+
+            tag: "Pesquisa",
+
+            title: "Consulta de clientes",
+
+            text: "Localiza clientes e permite acessar suas informações relacionadas.",
+
+            hotspots: [
+                {
+                    x: 39.6,
+                    y: 90.0,
+                    w: 7.5,
+                    h: 5.2,
+
+                    label: "Consulta",
+
+                    title: "Consultar cliente",
+
+                    text: "Abre o cadastro somente para visualização."
+                },
+
+                {
+                    x: 54.2,
+                    y: 90.0,
+                    w: 8.3,
+                    h: 5.2,
+
+                    label: "Processos",
+
+                    title: "Processos do cliente",
+
+                    text: "Abre os processos vinculados ao cliente selecionado."
+                },
+
+                {
+                    x: 82.0,
+                    y: 90.0,
+                    w: 7.5,
+                    h: 5.2,
+
+                    label: "Tarefa",
+
+                    title: "Tarefas do cliente",
+
+                    text: "Acessa ou inclui tarefas relacionadas ao cliente."
+                }
+            ],
+
+            actions: [
+                [
+                    "Procura",
+                    "Executa a pesquisa."
+                ],
+
+                [
+                    "Consulta",
+                    "Abre o cadastro somente para visualização."
+                ],
+
+                [
+                    "Alterar",
+                    "Abre o cadastro permitindo alterações."
+                ],
+
+                [
+                    "Processos",
+                    "Acessa os processos vinculados."
+                ],
+
+                [
+                    "Tarefa",
+                    "Acessa tarefas relacionadas."
+                ]
+            ]
+        },
+
+        {
+            image: "assets/cadastro-cliente.png",
+
+            tag: "Cadastro",
+
+            title: "Dados do cliente",
+
+            text: "Exibe os dados cadastrais e demais informações relacionadas ao cliente.",
+
+            hotspots: [],
+
+            actions: [
+                [
+                    "Consulta",
+                    "Permite somente visualizar os dados."
+                ],
+
+                [
+                    "Alterar",
+                    "Libera os campos permitidos para edição."
+                ],
+
+                [
+                    "Detalhes / Observações",
+                    "Acessa informações complementares."
+                ],
+
+                [
+                    "Atend./Tarefas",
+                    "Acessa atendimentos e tarefas vinculados."
+                ],
+
+                [
+                    "Financeiro / Bancos",
+                    "Acessa informações financeiras disponíveis."
+                ]
+            ]
+        }
+    ],
+
+
+    "Consulta pendências": [
+        {
+            image: "assets/pendencias.png",
+
+            tag: "Pendências",
+
+            title: "Central de pendências",
+
+            text: "Reúne diferentes tipos de pendências em uma única tela.",
+
+            hotspots: [],
+
+            actions: [
+                [
+                    "Abas",
+                    "Separam os tipos de pendência."
+                ],
+
+                [
+                    "Altera",
+                    "Abre o item para alteração."
+                ],
+
+                [
+                    "Repassa",
+                    "Repassa a pendência."
+                ],
+
+                [
+                    "Conclui",
+                    "Finaliza a pendência."
+                ],
+
+                [
+                    "Processo",
+                    "Abre o processo relacionado."
+                ]
+            ]
+        }
+    ],
+
+
+    "Processos": [
+        {
+            image: "assets/processo-detalhes.png",
+
+            tag: "Processo",
+
+            title: "Tela do processo",
+
+            text: "Concentra as principais informações e áreas relacionadas ao processo.",
+
+            hotspots: [],
+
+            actions: [
+                [
+                    "Processo",
+                    "Exibe os dados principais."
+                ],
+
+                [
+                    "Atividades/Agenda",
+                    "Acessa atividades vinculadas."
+                ],
+
+                [
+                    "Histórico/Andamento",
+                    "Acessa histórico e movimentações."
+                ],
+
+                [
+                    "Prazos / Tarefas",
+                    "Acessa prazos e tarefas."
+                ],
+
+                [
+                    "Documento / Recurso / Arquivo",
+                    "Acessa áreas complementares."
+                ],
+
+                [
+                    "Libera campos",
+                    "Libera os campos permitidos para alteração."
+                ]
+            ]
+        }
+    ],
+
+
+    "Prazos": [
+        {
+            image: "assets/prazos.png",
+
+            tag: "Pesquisa",
+
+            title: "Consulta de prazos",
+
+            text: "Consulta e gerencia prazos por meio dos filtros disponíveis.",
+
+            hotspots: [],
+
+            actions: [
+                [
+                    "Filtros",
+                    "Permitem refinar a pesquisa."
+                ],
+
+                [
+                    "Procura",
+                    "Executa a pesquisa."
+                ],
+
+                [
+                    "Altera",
+                    "Abre o prazo para alteração."
+                ],
+
+                [
+                    "Conclui",
+                    "Finaliza o prazo."
+                ],
+
+                [
+                    "Processo",
+                    "Abre o processo relacionado."
+                ]
+            ]
+        }
+    ],
+
+
+    "Tarefas": [
+        {
+            image: "assets/tarefas.png",
+
+            tag: "Pesquisa",
+
+            title: "Tarefas e demandas",
+
+            text: "Consulta retornos, demandas internas e solicitações de documentos.",
+
+            hotspots: [],
+
+            actions: [
+                [
+                    "Filtros",
+                    "Refinam a pesquisa."
+                ],
+
+                [
+                    "Inclui",
+                    "Abre o cadastro de uma nova tarefa."
+                ],
+
+                [
+                    "Altera",
+                    "Abre o registro para edição."
+                ],
+
+                [
+                    "Encerra",
+                    "Finaliza o item selecionado."
+                ],
+
+                [
+                    "Abre",
+                    "Abre o item relacionado."
+                ]
+            ]
+        },
+
+        {
+            image: "assets/cadastro-retorno.png",
+
+            tag: "Cadastro",
+
+            title: "Cadastro de retorno/tarefa",
+
+            text: "Permite cadastrar ou editar tarefas e demandas.",
+
+            hotspots: [],
+
+            actions: [
+                [
+                    "Tipo / Classificação",
+                    "Define a natureza do registro."
+                ],
+
+                [
+                    "Nome / Título / Descrição",
+                    "Identifica a tarefa."
+                ],
+
+                [
+                    "Responsável / Prazo",
+                    "Define responsável e data limite."
+                ],
+
+                [
+                    "Subtarefas",
+                    "Permite cadastrar subtarefas."
+                ],
+
+                [
+                    "Docs. / Checklist / Tag",
+                    "Complementam o registro."
+                ]
+            ]
+        }
+    ],
+
+
+    "Registros home office": [
+        {
+            image: "assets/home-office.png",
+
+            tag: "Consulta",
+
+            title: "Registro de atividades home office",
+
+            text: "Consulta atividades por período, responsável e tipo.",
+
+            hotspots: [],
+
+            actions: [
+                [
+                    "Período",
+                    "Define a faixa de datas."
+                ],
+
+                [
+                    "Responsável",
+                    "Filtra por usuário."
+                ],
+
+                [
+                    "Tipo",
+                    "Filtra o tipo de atividade."
+                ],
+
+                [
+                    "Somente não concluídos",
+                    "Exibe apenas itens pendentes."
+                ],
+
+                [
+                    "Procura",
+                    "Executa a pesquisa."
+                ]
+            ]
+        }
+    ]
 };
 
 
+
+/* =====================================================
+   ELEMENTOS DA PÁGINA
+   ===================================================== */
+
 const menu = document.getElementById("menu");
-const titleEl = document.getElementById("screenTitle");
-const descEl = document.getElementById("screenDescription");
-const imgEl = document.getElementById("screenImage");
-const tagEl = document.getElementById("infoTag");
-const infoTitle = document.getElementById("infoTitle");
-const infoText = document.getElementById("infoText");
-const actions = document.getElementById("actionList");
-const dots = document.getElementById("dots");
-const currentIndex = document.getElementById("currentIndex");
-const totalItems = document.getElementById("totalItems");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
-const slide = document.getElementById("slide");
-const hotspotsEl = document.getElementById("hotspots");
 
-let section = Object.keys(DATA)[0];
-let index = 0;
+const screenTitle = document.getElementById("screenTitle");
+
+const screenDescription =
+    document.getElementById("screenDescription");
+
+const screenImage =
+    document.getElementById("screenImage");
+
+const imageStage =
+    document.getElementById("imageStage");
+
+const hotspotsLayer =
+    document.getElementById("hotspots");
+
+const infoTag =
+    document.getElementById("infoTag");
+
+const infoTitle =
+    document.getElementById("infoTitle");
+
+const infoText =
+    document.getElementById("infoText");
+
+const actionList =
+    document.getElementById("actionList");
+
+const dots =
+    document.getElementById("dots");
+
+const currentIndex =
+    document.getElementById("currentIndex");
+
+const totalItems =
+    document.getElementById("totalItems");
+
+const prevBtn =
+    document.getElementById("prevBtn");
+
+const nextBtn =
+    document.getElementById("nextBtn");
+
+const slide =
+    document.getElementById("slide");
 
 
-function buildMenu() {
-  Object.keys(DATA).forEach((name) => {
-    const button = document.createElement("button");
 
-    button.className = "nav-item";
-    button.textContent = name;
+/* =====================================================
+   ESTADO
+   ===================================================== */
 
-    button.addEventListener("click", () => {
-      section = name;
-      index = 0;
-      render();
+let currentSection =
+    Object.keys(DATA)[0];
+
+let currentSlide = 0;
+
+
+
+/* =====================================================
+   MENU
+   ===================================================== */
+
+function createMenu() {
+
+    menu.innerHTML = "";
+
+    Object.keys(DATA).forEach((sectionName) => {
+
+        const button =
+            document.createElement("button");
+
+        button.type = "button";
+
+        button.className = "nav-item";
+
+        button.textContent = sectionName;
+
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                currentSection =
+                    sectionName;
+
+                currentSlide = 0;
+
+                render();
+
+            }
+        );
+
+
+        menu.appendChild(button);
+
     });
 
-    menu.appendChild(button);
-  });
 }
 
+
+
+/* =====================================================
+   RENDERIZAÇÃO
+   ===================================================== */
 
 function render() {
-  [...menu.children].forEach((button) => {
-    button.classList.toggle(
-      "active",
-      button.textContent === section
-    );
-  });
 
-  const items = DATA[section];
-  const item = items[index];
+    const sectionData =
+        DATA[currentSection];
 
-  titleEl.textContent = section;
-
-  descEl.textContent =
-    items.length > 1
-      ? "Use as setas para navegar pelos detalhes desta tela."
-      : "Resumo da tela e das principais ações.";
-
-  imgEl.src = item.image;
-  imgEl.alt = item.title;
-
-  tagEl.textContent = item.tag;
-  infoTitle.textContent = item.title;
-  infoText.textContent = item.text;
-
-  actions.innerHTML = "";
-
-  item.actions.forEach(([name, text]) => {
-    const element = document.createElement("div");
-
-    element.className = "action";
-
-    element.innerHTML = `
-      <strong>${name}</strong>
-      <span>${text}</span>
-    `;
-
-    actions.appendChild(element);
-  });
+    const item =
+        sectionData[currentSlide];
 
 
-  currentIndex.textContent = index + 1;
-  totalItems.textContent = items.length;
+    /* MENU ATIVO */
+
+    [...menu.children]
+        .forEach((button) => {
+
+            button.classList.toggle(
+                "active",
+                button.textContent ===
+                currentSection
+            );
+
+        });
 
 
-  dots.innerHTML = "";
 
-  items.forEach((_, i) => {
-    const dot = document.createElement("button");
+    /* TÍTULOS */
 
-    dot.className = "dot" + (i === index ? " active" : "");
-
-    dot.setAttribute(
-      "aria-label",
-      `Ir para item ${i + 1}`
-    );
-
-    dot.addEventListener("click", () => {
-      index = i;
-      render();
-    });
-
-    dots.appendChild(dot);
-  });
+    screenTitle.textContent =
+        currentSection;
 
 
-  prevBtn.style.visibility =
-    items.length > 1 ? "visible" : "hidden";
+    if (sectionData.length > 1) {
 
-  nextBtn.style.visibility =
-    items.length > 1 ? "visible" : "hidden";
+        screenDescription.textContent =
+            "Use as setas para navegar pelas informações desta tela.";
+
+    } else {
+
+        screenDescription.textContent =
+            "Resumo da tela e das principais funções.";
+
+    }
 
 
-  renderHotspots(item.hotspots || []);
-}
+
+    /* INFORMAÇÕES */
+
+    infoTag.textContent =
+        item.tag;
+
+    infoTitle.textContent =
+        item.title;
+
+    infoText.textContent =
+        item.text;
 
 
-function renderHotspots(list) {
-  hotspotsEl.innerHTML = "";
 
-  list.forEach((hotspot) => {
-    const button = document.createElement("button");
+    /* CONTADOR */
 
-    button.type = "button";
-    button.className = "hotspot";
+    currentIndex.textContent =
+        currentSlide + 1;
 
-    button.dataset.label = hotspot.label;
+    totalItems.textContent =
+        sectionData.length;
 
-    button.setAttribute(
-      "aria-label",
-      hotspot.title
+
+
+    /* AÇÕES */
+
+    renderActions(
+        item.actions || []
     );
 
-    Object.assign(button.style, {
-      left: hotspot.x + "%",
-      top: hotspot.y + "%",
-      width: hotspot.w + "%",
-      height: hotspot.h + "%"
-    });
 
-    button.addEventListener("click", (event) => {
-      event.stopPropagation();
 
-      showHotspotNote(
-        button,
-        hotspot
-      );
-    });
+    /* BOLINHAS */
 
-    hotspotsEl.appendChild(button);
-  });
+    renderDots(
+        sectionData
+    );
+
+
+
+    /* SETAS */
+
+    const hasMultipleSlides =
+        sectionData.length > 1;
+
+
+    prevBtn.style.visibility =
+        hasMultipleSlides
+            ? "visible"
+            : "hidden";
+
+
+    nextBtn.style.visibility =
+        hasMultipleSlides
+            ? "visible"
+            : "hidden";
+
+
+
+    /*
+        IMPORTANTE:
+
+        Os hotspots só são desenhados
+        DEPOIS que a imagem carregar.
+
+        Isso garante que o image-stage
+        já esteja com o tamanho correto.
+    */
+
+    hotspotsLayer.innerHTML = "";
+
+
+    screenImage.onload = () => {
+
+        updateImageStage();
+
+        renderHotspots(
+            item.hotspots || []
+        );
+
+    };
+
+
+    screenImage.src =
+        item.image;
+
+    screenImage.alt =
+        item.title;
+
+
+
+    /*
+        Se a imagem já estiver
+        no cache do navegador.
+    */
+
+    if (screenImage.complete) {
+
+        updateImageStage();
+
+        renderHotspots(
+            item.hotspots || []
+        );
+
+    }
+
 }
 
 
-function showHotspotNote(button, hotspot) {
 
-  hotspotsEl
-    .querySelectorAll(".hotspot-note")
-    .forEach((note) => {
-      note.remove();
-    });
+/* =====================================================
+   IMAGE STAGE
 
+   Mantém a camada interativa exatamente
+   do mesmo tamanho da imagem renderizada.
+   ===================================================== */
 
-  const note = document.createElement("div");
+function updateImageStage() {
 
-  note.className = "hotspot-note";
+    const imageWidth =
+        screenImage.clientWidth;
 
-  note.innerHTML = `
-    <strong>${hotspot.title}</strong>
-
-    ${hotspot.text}
-
-    <br>
-
-    <button type="button">
-      Fechar
-    </button>
-  `;
+    const imageHeight =
+        screenImage.clientHeight;
 
 
-  const left = Math.min(
-    72,
-    Math.max(
-      2,
-      hotspot.x + hotspot.w + 1
-    )
-  );
+    if (
+        imageWidth === 0 ||
+        imageHeight === 0
+    ) {
+        return;
+    }
 
 
-  const top = Math.min(
-    78,
-    Math.max(
-      2,
-      hotspot.y
-    )
-  );
+    imageStage.style.width =
+        `${imageWidth}px`;
 
+    imageStage.style.height =
+        `${imageHeight}px`;
 
-  Object.assign(note.style, {
-    left: left + "%",
-    top: top + "%"
-  });
-
-
-  note
-    .querySelector("button")
-    .addEventListener("click", () => {
-      note.remove();
-    });
-
-
-  hotspotsEl.appendChild(note);
 }
 
 
-function move(delta) {
 
-  const items = DATA[section];
+/* =====================================================
+   AÇÕES
+   ===================================================== */
 
-  index =
-    (
-      index +
-      delta +
-      items.length
-    ) % items.length;
+function renderActions(actions) {
 
-  render();
+    actionList.innerHTML = "";
+
+
+    actions.forEach(
+        ([title, description]) => {
+
+            const action =
+                document.createElement("div");
+
+            action.className =
+                "action";
+
+
+            const strong =
+                document.createElement("strong");
+
+            strong.textContent =
+                title;
+
+
+            const span =
+                document.createElement("span");
+
+            span.textContent =
+                description;
+
+
+            action.appendChild(
+                strong
+            );
+
+            action.appendChild(
+                span
+            );
+
+
+            actionList.appendChild(
+                action
+            );
+
+        }
+    );
+
 }
+
+
+
+/* =====================================================
+   BOLINHAS
+   ===================================================== */
+
+function renderDots(items) {
+
+    dots.innerHTML = "";
+
+
+    if (items.length <= 1) {
+
+        dots.style.display =
+            "none";
+
+        return;
+
+    }
+
+
+    dots.style.display =
+        "flex";
+
+
+    items.forEach(
+        (_, index) => {
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+
+            button.type =
+                "button";
+
+
+            button.className =
+                "dot";
+
+
+            if (
+                index ===
+                currentSlide
+            ) {
+
+                button.classList.add(
+                    "active"
+                );
+
+            }
+
+
+            button.setAttribute(
+                "aria-label",
+                `Ir para etapa ${index + 1}`
+            );
+
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    currentSlide =
+                        index;
+
+                    render();
+
+                }
+            );
+
+
+            dots.appendChild(
+                button
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   HOTSPOTS
+   ===================================================== */
+
+function renderHotspots(hotspots) {
+
+    hotspotsLayer.innerHTML =
+        "";
+
+
+    hotspots.forEach(
+        (hotspot, index) => {
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+
+            button.type =
+                "button";
+
+
+            button.className =
+                "hotspot";
+
+
+            button.dataset.label =
+                hotspot.label;
+
+
+            button.setAttribute(
+                "aria-label",
+                hotspot.title
+            );
+
+
+            /*
+                Como o hotspot está dentro
+                do image-stage, estas porcentagens
+                são sempre relativas SOMENTE
+                à imagem.
+            */
+
+            button.style.left =
+                `${hotspot.x}%`;
+
+            button.style.top =
+                `${hotspot.y}%`;
+
+            button.style.width =
+                `${hotspot.w}%`;
+
+            button.style.height =
+                `${hotspot.h}%`;
+
+
+            /*
+                Número visual do ponto.
+
+                Ajuda a pessoa a perceber
+                que aquilo é interativo.
+            */
+
+            const number =
+                document.createElement(
+                    "span"
+                );
+
+
+            number.className =
+                "hotspot-number";
+
+
+            number.textContent =
+                index + 1;
+
+
+            button.appendChild(
+                number
+            );
+
+
+
+            /*
+                Título pequeno visível.
+            */
+
+            const label =
+                document.createElement(
+                    "span"
+                );
+
+
+            label.className =
+                "hotspot-label";
+
+
+            label.textContent =
+                hotspot.label;
+
+
+            button.appendChild(
+                label
+            );
+
+
+
+            button.addEventListener(
+                "mouseenter",
+                () => {
+
+                    showHotspotPreview(
+                        button,
+                        hotspot
+                    );
+
+                }
+            );
+
+
+            button.addEventListener(
+                "mouseleave",
+                () => {
+
+                    removePreview();
+
+                }
+            );
+
+
+            button.addEventListener(
+                "click",
+                (event) => {
+
+                    event.stopPropagation();
+
+                    openHotspot(
+                        button,
+                        hotspot
+                    );
+
+                }
+            );
+
+
+            hotspotsLayer.appendChild(
+                button
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   PREVIEW NO HOVER
+   ===================================================== */
+
+function showHotspotPreview(
+    button,
+    hotspot
+) {
+
+    removePreview();
+
+
+    const preview =
+        document.createElement(
+            "div"
+        );
+
+
+    preview.className =
+        "hotspot-preview";
+
+
+    const title =
+        document.createElement(
+            "strong"
+        );
+
+
+    title.textContent =
+        hotspot.title;
+
+
+    const text =
+        document.createElement(
+            "span"
+        );
+
+
+    text.textContent =
+        hotspot.text;
+
+
+    preview.appendChild(
+        title
+    );
+
+    preview.appendChild(
+        text
+    );
+
+
+    /*
+        Posição baseada no botão.
+    */
+
+    const left =
+        button.offsetLeft +
+        button.offsetWidth +
+        8;
+
+
+    const top =
+        button.offsetTop;
+
+
+    preview.style.left =
+        `${left}px`;
+
+    preview.style.top =
+        `${top}px`;
+
+
+    hotspotsLayer.appendChild(
+        preview
+    );
+
+}
+
+
+
+/* =====================================================
+   EXPLICAÇÃO AO CLICAR
+   ===================================================== */
+
+function openHotspot(
+    button,
+    hotspot
+) {
+
+    removePreview();
+
+    removeHotspotModal();
+
+
+    const note =
+        document.createElement(
+            "div"
+        );
+
+
+    note.className =
+        "hotspot-note";
+
+
+    const title =
+        document.createElement(
+            "strong"
+        );
+
+
+    title.textContent =
+        hotspot.title;
+
+
+
+    const text =
+        document.createElement(
+            "p"
+        );
+
+
+    text.textContent =
+        hotspot.text;
+
+
+
+    const close =
+        document.createElement(
+            "button"
+        );
+
+
+    close.type =
+        "button";
+
+    close.className =
+        "hotspot-close";
+
+    close.textContent =
+        "Fechar";
+
+
+    close.addEventListener(
+        "click",
+        (event) => {
+
+            event.stopPropagation();
+
+            note.remove();
+
+        }
+    );
+
+
+    note.appendChild(
+        title
+    );
+
+    note.appendChild(
+        text
+    );
+
+    note.appendChild(
+        close
+    );
+
+
+    /*
+        Posiciona tentando não
+        sair da imagem.
+    */
+
+    const stageWidth =
+        imageStage.clientWidth;
+
+    const stageHeight =
+        imageStage.clientHeight;
+
+
+    const desiredLeft =
+        button.offsetLeft +
+        button.offsetWidth +
+        10;
+
+
+    const desiredTop =
+        button.offsetTop;
+
+
+    const noteWidth =
+        Math.min(
+            280,
+            stageWidth * 0.42
+        );
+
+
+    note.style.width =
+        `${noteWidth}px`;
+
+
+    let left =
+        desiredLeft;
+
+
+    let top =
+        desiredTop;
+
+
+    if (
+        left + noteWidth >
+        stageWidth - 10
+    ) {
+
+        left =
+            Math.max(
+                10,
+                button.offsetLeft -
+                noteWidth -
+                10
+            );
+
+    }
+
+
+    if (
+        top >
+        stageHeight - 150
+    ) {
+
+        top =
+            Math.max(
+                10,
+                stageHeight - 160
+            );
+
+    }
+
+
+    note.style.left =
+        `${left}px`;
+
+    note.style.top =
+        `${top}px`;
+
+
+    hotspotsLayer.appendChild(
+        note
+    );
+
+}
+
+
+
+/* =====================================================
+   REMOVE PREVIEW
+   ===================================================== */
+
+function removePreview() {
+
+    hotspotsLayer
+        .querySelectorAll(
+            ".hotspot-preview"
+        )
+        .forEach(
+            (element) =>
+                element.remove()
+        );
+
+}
+
+
+
+/* =====================================================
+   REMOVE NOTA ABERTA
+   ===================================================== */
+
+function removeHotspotModal() {
+
+    hotspotsLayer
+        .querySelectorAll(
+            ".hotspot-note"
+        )
+        .forEach(
+            (element) =>
+                element.remove()
+        );
+
+}
+
+
+
+/* =====================================================
+   NAVEGAÇÃO
+   ===================================================== */
+
+function move(direction) {
+
+    const items =
+        DATA[currentSection];
+
+
+    currentSlide =
+        (
+            currentSlide +
+            direction +
+            items.length
+        ) %
+        items.length;
+
+
+    render();
+
+}
+
 
 
 prevBtn.addEventListener(
-  "click",
-  () => move(-1)
+    "click",
+    () => {
+
+        move(-1);
+
+    }
 );
+
 
 
 nextBtn.addEventListener(
-  "click",
-  () => move(1)
-);
+    "click",
+    () => {
 
-
-let startX = null;
-
-
-slide.addEventListener(
-  "touchstart",
-  (event) => {
-
-    startX =
-      event.touches[0].clientX;
-
-  },
-  {
-    passive: true
-  }
-);
-
-
-slide.addEventListener(
-  "touchend",
-  (event) => {
-
-    if (startX === null) {
-      return;
-    }
-
-
-    const diff =
-      event.changedTouches[0].clientX -
-      startX;
-
-
-    if (
-      Math.abs(diff) > 45
-    ) {
-
-      move(
-        diff > 0
-          ? -1
-          : 1
-      );
+        move(1);
 
     }
-
-
-    startX = null;
-  }
 );
 
+
+
+/* =====================================================
+   TECLADO
+   ===================================================== */
 
 document.addEventListener(
-  "keydown",
-  (event) => {
+    "keydown",
+    (event) => {
 
-    if (
-      event.key === "ArrowLeft"
-    ) {
-      move(-1);
+        if (
+            event.key ===
+            "ArrowLeft"
+        ) {
+
+            move(-1);
+
+        }
+
+
+        if (
+            event.key ===
+            "ArrowRight"
+        ) {
+
+            move(1);
+
+        }
+
     }
-
-    if (
-      event.key === "ArrowRight"
-    ) {
-      move(1);
-    }
-
-  }
 );
 
 
-buildMenu();
+
+/* =====================================================
+   DESLIZAR NO CELULAR
+   ===================================================== */
+
+let touchStartX =
+    null;
+
+
+slide.addEventListener(
+    "touchstart",
+    (event) => {
+
+        touchStartX =
+            event.touches[0]
+                .clientX;
+
+    },
+
+    {
+        passive: true
+    }
+);
+
+
+
+slide.addEventListener(
+    "touchend",
+    (event) => {
+
+        if (
+            touchStartX === null
+        ) {
+            return;
+        }
+
+
+        const touchEndX =
+            event.changedTouches[0]
+                .clientX;
+
+
+        const difference =
+            touchEndX -
+            touchStartX;
+
+
+        if (
+            Math.abs(difference) >
+            50
+        ) {
+
+            if (
+                difference > 0
+            ) {
+
+                move(-1);
+
+            } else {
+
+                move(1);
+
+            }
+
+        }
+
+
+        touchStartX =
+            null;
+
+    }
+);
+
+
+
+/* =====================================================
+   RESPONSIVIDADE
+
+   Sempre que a janela mudar de tamanho,
+   recalculamos o stage da imagem.
+   ===================================================== */
+
+window.addEventListener(
+    "resize",
+    () => {
+
+        updateImageStage();
+
+    }
+);
+
+
+
+/* =====================================================
+   INICIALIZAÇÃO
+   ===================================================== */
+
+createMenu();
+
 render();
