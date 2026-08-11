@@ -1,61 +1,316 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Mapa do SIP</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Mapa do SIP</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 </head>
+
+
 <body>
-  <header class="topbar">
-    <div>
-      <span class="eyebrow">GUIA INTERATIVO</span>
-      <h1>Mapa do SIP</h1>
-      <p>Processos — consulta rápida das principais telas e ações.</p>
-    </div>
-  </header>
 
-  <main class="layout">
-    <aside class="sidebar">
-      <div class="sidebar-title">Processos</div>
-      <nav id="menu"></nav>
-    </aside>
+    <!-- =========================================
+         CABEÇALHO
+         ========================================= -->
 
-    <section class="content">
-      <div class="content-head">
-        <div>
-          <span class="breadcrumb">Processos</span>
-          <h2 id="screenTitle"></h2>
-          <p id="screenDescription"></p>
+    <header class="topbar">
+
+        <div class="topbar-content">
+
+            <span class="eyebrow">
+                GUIA INTERATIVO
+            </span>
+
+            <h1>
+                Mapa do SIP
+            </h1>
+
+            <p>
+                Consulta rápida das principais telas e funções do sistema.
+            </p>
+
         </div>
-        <div class="counter"><span id="currentIndex">1</span>/<span id="totalItems">1</span></div>
-      </div>
 
-      <div class="top-nav-row"><div class="dots" id="dots"></div></div>
+    </header>
 
-      <div class="viewer">
-        <button class="arrow left" id="prevBtn" aria-label="Anterior">‹</button>
-        <div class="slide" id="slide">
-          <div class="image-wrap">
-            <div class="image-stage">
-              <img id="screenImage" alt="">
-              <div id="hotspots" class="hotspots" aria-live="polite"></div>
+
+
+    <!-- =========================================
+         ESTRUTURA PRINCIPAL
+         ========================================= -->
+
+    <main class="layout">
+
+
+        <!-- =====================================
+             MENU LATERAL
+             ===================================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-title">
+                Processos
             </div>
-          </div>
-          <div class="info-panel">
-            <span class="tag" id="infoTag"></span>
-            <h3 id="infoTitle"></h3>
-            <p id="infoText"></p>
-            <div id="actionList" class="action-list"></div>
-          </div>
-        </div>
-        <button class="arrow right" id="nextBtn" aria-label="Próximo">›</button>
-      </div>
 
-      <p class="hint">Use as setas ou deslize para o lado para navegar pelas ações.</p>
-    </section>
-  </main>
+            <nav
+                id="menu"
+                class="menu"
+            ></nav>
 
-  <script src="script.js"></script>
+        </aside>
+
+
+
+        <!-- =====================================
+             CONTEÚDO
+             ===================================== -->
+
+        <section class="content">
+
+
+            <!-- =================================
+                 CABEÇALHO DA TELA
+                 ================================= -->
+
+            <div class="content-head">
+
+                <div class="content-title">
+
+                    <span class="breadcrumb">
+                        Processos
+                    </span>
+
+                    <h2 id="screenTitle"></h2>
+
+                    <p id="screenDescription"></p>
+
+                </div>
+
+
+                <div
+                    class="counter"
+                    aria-label="Etapa atual"
+                >
+
+                    <span id="currentIndex">
+                        1
+                    </span>
+
+                    <span class="counter-divider">
+                        /
+                    </span>
+
+                    <span id="totalItems">
+                        1
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 NAVEGAÇÃO DAS ETAPAS
+                 FICA EM CIMA
+                 ================================= -->
+
+            <div
+                class="navigation-top"
+                id="navigationTop"
+            >
+
+                <div
+                    class="dots"
+                    id="dots"
+                    aria-label="Navegação entre etapas"
+                ></div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 VISUALIZADOR
+                 ================================= -->
+
+            <div class="viewer">
+
+
+                <!-- SETA ESQUERDA -->
+
+                <button
+                    class="arrow arrow-left"
+                    id="prevBtn"
+                    type="button"
+                    aria-label="Tela anterior"
+                    title="Anterior"
+                >
+
+                    ‹
+
+                </button>
+
+
+
+                <!-- =================================
+                     CONTEÚDO DO SLIDE
+                     ================================= -->
+
+                <div
+                    class="slide"
+                    id="slide"
+                >
+
+
+                    <!-- =============================
+                         PRINT DO SIP
+                         ============================= -->
+
+                    <div class="image-area">
+
+
+                        <!--
+                            IMPORTANTE:
+
+                            O image-stage acompanha
+                            EXATAMENTE o tamanho da imagem.
+
+                            Os hotspots serão posicionados
+                            em relação a este elemento,
+                            e não ao espaço total da tela.
+                        -->
+
+                        <div
+                            class="image-stage"
+                            id="imageStage"
+                        >
+
+                            <img
+                                id="screenImage"
+                                class="screen-image"
+                                src=""
+                                alt=""
+                                draggable="false"
+                            >
+
+
+                            <!--
+                                CAMADA INTERATIVA.
+
+                                O JavaScript colocará aqui
+                                os botões clicáveis.
+
+                                Como está dentro do image-stage,
+                                acompanha o tamanho da imagem.
+                            -->
+
+                            <div
+                                id="hotspots"
+                                class="hotspots-layer"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =============================
+                         PAINEL DE EXPLICAÇÃO
+                         ============================= -->
+
+                    <aside class="info-panel">
+
+
+                        <span
+                            class="tag"
+                            id="infoTag"
+                        ></span>
+
+
+                        <h3 id="infoTitle"></h3>
+
+
+                        <p
+                            id="infoText"
+                            class="info-text"
+                        ></p>
+
+
+                        <div
+                            id="actionList"
+                            class="action-list"
+                        ></div>
+
+
+                    </aside>
+
+
+                </div>
+
+
+
+                <!-- SETA DIREITA -->
+
+                <button
+                    class="arrow arrow-right"
+                    id="nextBtn"
+                    type="button"
+                    aria-label="Próxima tela"
+                    title="Próximo"
+                >
+
+                    ›
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================
+                 AJUDA
+                 ================================= -->
+
+            <div class="viewer-help">
+
+                <span class="viewer-help-icon">
+                    ●
+                </span>
+
+                <span>
+                    Os pontos destacados no print possuem explicações.
+                    Passe o mouse ou clique sobre eles.
+                </span>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+         ========================================= -->
+
+    <script src="script.js"></script>
+
 </body>
+
 </html>
