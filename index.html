@@ -31,11 +31,16 @@
         <div class="counter"><span id="currentIndex">1</span>/<span id="totalItems">1</span></div>
       </div>
 
+      <div class="top-nav-row"><div class="dots" id="dots"></div></div>
+
       <div class="viewer">
         <button class="arrow left" id="prevBtn" aria-label="Anterior">‹</button>
         <div class="slide" id="slide">
           <div class="image-wrap">
-            <img id="screenImage" alt="">
+            <div class="image-stage">
+              <img id="screenImage" alt="">
+              <div id="hotspots" class="hotspots" aria-live="polite"></div>
+            </div>
           </div>
           <div class="info-panel">
             <span class="tag" id="infoTag"></span>
@@ -47,7 +52,6 @@
         <button class="arrow right" id="nextBtn" aria-label="Próximo">›</button>
       </div>
 
-      <div class="dots" id="dots"></div>
       <p class="hint">Use as setas ou deslize para o lado para navegar pelas ações.</p>
     </section>
   </main>
