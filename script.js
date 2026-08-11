@@ -620,18 +620,17 @@ const DATA = {
    ELEMENTOS DA PÁGINA
    ===================================================== */
 
-const menu = document.getElementById("menu");
+const menu =
+    document.getElementById("menu");
 
-const screenTitle = document.getElementById("screenTitle");
+const screenTitle =
+    document.getElementById("screenTitle");
 
 const screenDescription =
     document.getElementById("screenDescription");
 
 const screenImage =
     document.getElementById("screenImage");
-
-const imageStage =
-    document.getElementById("imageStage");
 
 const hotspotsLayer =
     document.getElementById("hotspots");
@@ -687,36 +686,42 @@ function createMenu() {
 
     menu.innerHTML = "";
 
-    Object.keys(DATA).forEach((sectionName) => {
+    Object.keys(DATA).forEach(
+        (sectionName) => {
 
-        const button =
-            document.createElement("button");
+            const button =
+                document.createElement("button");
 
-        button.type = "button";
+            button.type = "button";
 
-        button.className = "nav-item";
+            button.className =
+                "nav-item";
 
-        button.textContent = sectionName;
-
-
-        button.addEventListener(
-            "click",
-            () => {
-
-                currentSection =
-                    sectionName;
-
-                currentSlide = 0;
-
-                render();
-
-            }
-        );
+            button.textContent =
+                sectionName;
 
 
-        menu.appendChild(button);
+            button.addEventListener(
+                "click",
+                () => {
 
-    });
+                    currentSection =
+                        sectionName;
+
+                    currentSlide = 0;
+
+                    render();
+
+                }
+            );
+
+
+            menu.appendChild(
+                button
+            );
+
+        }
+    );
 
 }
 
@@ -738,39 +743,34 @@ function render() {
     /* MENU ATIVO */
 
     [...menu.children]
-        .forEach((button) => {
+        .forEach(
+            (button) => {
 
-            button.classList.toggle(
-                "active",
-                button.textContent ===
-                currentSection
-            );
+                button.classList.toggle(
+                    "active",
+                    button.textContent ===
+                    currentSection
+                );
 
-        });
+            }
+        );
 
 
 
-    /* TÍTULOS */
+    /* TÍTULO */
 
     screenTitle.textContent =
         currentSection;
 
 
-    if (sectionData.length > 1) {
-
-        screenDescription.textContent =
-            "Use as setas para navegar pelas informações desta tela.";
-
-    } else {
-
-        screenDescription.textContent =
-            "Resumo da tela e das principais funções.";
-
-    }
+    screenDescription.textContent =
+        sectionData.length > 1
+            ? "Use as setas para navegar pelas informações desta tela."
+            : "Resumo da tela e das principais funções.";
 
 
 
-    /* INFORMAÇÕES */
+    /* PAINEL DIREITO */
 
     infoTag.textContent =
         item.tag;
@@ -829,21 +829,37 @@ function render() {
 
 
     /*
-        IMPORTANTE:
-
-        Os hotspots só são desenhados
-        DEPOIS que a imagem carregar.
-
-        Isso garante que o image-stage
-        já esteja com o tamanho correto.
+       Limpa qualquer hotspot,
+       preview ou janela da imagem anterior.
     */
 
     hotspotsLayer.innerHTML = "";
 
 
+
+    /*
+       Remove temporariamente a imagem.
+
+       Isso força o navegador a recalcular
+       corretamente as dimensões quando
+       mudamos de tela.
+    */
+
+    screenImage.removeAttribute(
+        "src"
+    );
+
+
+
+    /*
+       Quando a nova imagem terminar
+       de carregar, criamos os hotspots.
+    */
+
     screenImage.onload = () => {
 
-        updateImageStage();
+        hotspotsLayer.innerHTML =
+            "";
 
         renderHotspots(
             item.hotspots || []
@@ -852,62 +868,16 @@ function render() {
     };
 
 
-    screenImage.src =
-        item.image;
+
+    /*
+       Carrega a imagem nova.
+    */
 
     screenImage.alt =
         item.title;
 
-
-
-    /*
-        Se a imagem já estiver
-        no cache do navegador.
-    */
-
-    if (screenImage.complete) {
-
-        updateImageStage();
-
-        renderHotspots(
-            item.hotspots || []
-        );
-
-    }
-
-}
-
-
-
-/* =====================================================
-   IMAGE STAGE
-
-   Mantém a camada interativa exatamente
-   do mesmo tamanho da imagem renderizada.
-   ===================================================== */
-
-function updateImageStage() {
-
-    const imageWidth =
-        screenImage.clientWidth;
-
-    const imageHeight =
-        screenImage.clientHeight;
-
-
-    if (
-        imageWidth === 0 ||
-        imageHeight === 0
-    ) {
-        return;
-    }
-
-
-    imageStage.style.width =
-        `${imageWidth}px`;
-
-    imageStage.style.height =
-        `${imageHeight}px`;
+    screenImage.src =
+        item.image;
 
 }
 
@@ -926,21 +896,27 @@ function renderActions(actions) {
         ([title, description]) => {
 
             const action =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
             action.className =
                 "action";
 
 
             const strong =
-                document.createElement("strong");
+                document.createElement(
+                    "strong"
+                );
 
             strong.textContent =
                 title;
 
 
             const span =
-                document.createElement("span");
+                document.createElement(
+                    "span"
+                );
 
             span.textContent =
                 description;
@@ -1075,22 +1051,11 @@ function renderHotspots(hotspots) {
                 "hotspot";
 
 
-            button.dataset.label =
-                hotspot.label;
-
-
             button.setAttribute(
                 "aria-label",
                 hotspot.title
             );
 
-
-            /*
-                Como o hotspot está dentro
-                do image-stage, estas porcentagens
-                são sempre relativas SOMENTE
-                à imagem.
-            */
 
             button.style.left =
                 `${hotspot.x}%`;
@@ -1105,12 +1070,8 @@ function renderHotspots(hotspots) {
                 `${hotspot.h}%`;
 
 
-            /*
-                Número visual do ponto.
 
-                Ajuda a pessoa a perceber
-                que aquilo é interativo.
-            */
+            /* indicador pequeno */
 
             const number =
                 document.createElement(
@@ -1133,7 +1094,10 @@ function renderHotspots(hotspots) {
 
 
             /*
-                Título pequeno visível.
+               O label continua existindo,
+               mas o próximo CSS vai deixá-lo
+               discreto e só mostrar quando
+               fizer sentido.
             */
 
             const label =
@@ -1155,6 +1119,8 @@ function renderHotspots(hotspots) {
             );
 
 
+
+            /* HOVER */
 
             button.addEventListener(
                 "mouseenter",
@@ -1178,6 +1144,9 @@ function renderHotspots(hotspots) {
                 }
             );
 
+
+
+            /* CLIQUE */
 
             button.addEventListener(
                 "click",
@@ -1256,18 +1225,54 @@ function showHotspotPreview(
     );
 
 
+
     /*
-        Posição baseada no botão.
+       tenta abrir ao lado
     */
 
-    const left =
+    let left =
         button.offsetLeft +
         button.offsetWidth +
         8;
 
 
-    const top =
+    let top =
         button.offsetTop;
+
+
+
+    /*
+       se não couber à direita,
+       abre à esquerda
+    */
+
+    const estimatedWidth = 240;
+
+
+    if (
+        left + estimatedWidth >
+        hotspotsLayer.clientWidth
+    ) {
+
+        left =
+            button.offsetLeft -
+            estimatedWidth -
+            8;
+
+    }
+
+
+
+    /*
+       evita sair pela esquerda
+    */
+
+    if (left < 5) {
+
+        left = 5;
+
+    }
+
 
 
     preview.style.left =
@@ -1286,7 +1291,7 @@ function showHotspotPreview(
 
 
 /* =====================================================
-   EXPLICAÇÃO AO CLICAR
+   JANELA AO CLICAR
    ===================================================== */
 
 function openHotspot(
@@ -1340,8 +1345,10 @@ function openHotspot(
     close.type =
         "button";
 
+
     close.className =
         "hotspot-close";
+
 
     close.textContent =
         "Fechar";
@@ -1359,6 +1366,7 @@ function openHotspot(
     );
 
 
+
     note.appendChild(
         title
     );
@@ -1372,32 +1380,19 @@ function openHotspot(
     );
 
 
-    /*
-        Posiciona tentando não
-        sair da imagem.
-    */
 
     const stageWidth =
-        imageStage.clientWidth;
+        hotspotsLayer.clientWidth;
+
 
     const stageHeight =
-        imageStage.clientHeight;
-
-
-    const desiredLeft =
-        button.offsetLeft +
-        button.offsetWidth +
-        10;
-
-
-    const desiredTop =
-        button.offsetTop;
+        hotspotsLayer.clientHeight;
 
 
     const noteWidth =
         Math.min(
             280,
-            stageWidth * 0.42
+            stageWidth * 0.45
         );
 
 
@@ -1405,12 +1400,16 @@ function openHotspot(
         `${noteWidth}px`;
 
 
+
     let left =
-        desiredLeft;
+        button.offsetLeft +
+        button.offsetWidth +
+        10;
 
 
     let top =
-        desiredTop;
+        button.offsetTop;
+
 
 
     if (
@@ -1419,28 +1418,34 @@ function openHotspot(
     ) {
 
         left =
-            Math.max(
-                10,
-                button.offsetLeft -
-                noteWidth -
-                10
-            );
+            button.offsetLeft -
+            noteWidth -
+            10;
 
     }
 
 
+
+    if (left < 10) {
+
+        left = 10;
+
+    }
+
+
+
     if (
-        top >
-        stageHeight - 150
+        top > stageHeight - 170
     ) {
 
         top =
             Math.max(
                 10,
-                stageHeight - 160
+                stageHeight - 180
             );
 
     }
+
 
 
     note.style.left =
@@ -1469,8 +1474,11 @@ function removePreview() {
             ".hotspot-preview"
         )
         .forEach(
-            (element) =>
-                element.remove()
+            (element) => {
+
+                element.remove();
+
+            }
         );
 
 }
@@ -1478,7 +1486,7 @@ function removePreview() {
 
 
 /* =====================================================
-   REMOVE NOTA ABERTA
+   REMOVE JANELA
    ===================================================== */
 
 function removeHotspotModal() {
@@ -1488,8 +1496,11 @@ function removeHotspotModal() {
             ".hotspot-note"
         )
         .forEach(
-            (element) =>
-                element.remove()
+            (element) => {
+
+                element.remove();
+
+            }
         );
 
 }
@@ -1504,6 +1515,13 @@ function move(direction) {
 
     const items =
         DATA[currentSection];
+
+
+    if (items.length <= 1) {
+
+        return;
+
+    }
 
 
     currentSlide =
@@ -1607,7 +1625,9 @@ slide.addEventListener(
         if (
             touchStartX === null
         ) {
+
             return;
+
         }
 
 
@@ -1650,17 +1670,27 @@ slide.addEventListener(
 
 
 /* =====================================================
-   RESPONSIVIDADE
-
-   Sempre que a janela mudar de tamanho,
-   recalculamos o stage da imagem.
+   FECHA EXPLICAÇÕES AO CLICAR FORA
    ===================================================== */
 
-window.addEventListener(
-    "resize",
-    () => {
+document.addEventListener(
+    "click",
+    (event) => {
 
-        updateImageStage();
+        if (
+            !event.target.closest(
+                ".hotspot"
+            ) &&
+            !event.target.closest(
+                ".hotspot-note"
+            )
+        ) {
+
+            removeHotspotModal();
+
+            removePreview();
+
+        }
 
     }
 );
